@@ -1,0 +1,218 @@
+
+/* __________ HEADER _________ */
+
+.header {
+	margin:0px;
+	padding:0px;
+}
+
+#headerLogo {
+	font-size: 23px; 
+	margin-left:10px;
+	font-weight: bold;
+	color:#ff670f;
+}
+
+#headerLogin {
+	font-size: 18px; 
+	margin-right:10px;
+	color:#ff670f;
+}
+
+#headerLogout {
+	font-size: 18px; 
+	margin-right:10px;
+	color:#ff670f;
+}
+/* __________ MENU _________ */
+
+.menuBar {
+	background-color:#0c1a1e;
+	padding :10px;
+}
+
+.menuBar ul :hover {
+	background-color:#0c1a1e;
+}
+
+.menuBar li :hover {
+	background-color:#0c1a1e;
+}
+
+.menuBar li a{
+	color:#a0a3a4; 
+	background-color:#0c1a1e;
+}
+
+.menuBar a:hover{
+	background-color:#0c1a1e;
+	color:#ff670f;  
+}
+
+.menuBar li a {
+	font-size: 18px; 
+}
+
+.menuBar li a :hover {
+	font-size: 18px; 
+}
+
+/* __________ FOOTER _________ */
+
+
+footer {
+	background-color:#0c1a1e;
+	min-height:80px;
+	max-height:100px;
+	font-family:'Open Sans', sans-serif;
+	bottom:0px;width:100%;
+	position:fixed;
+}
+
+.footerleft { 
+	margin-top:10px;
+	padding:0 36px;
+}
+ 
+.logofooter { 
+	margin-bottom:10px; 
+	font-size:25px; 
+	color:#fff; 
+	font-weight:700;
+}
+
+.footer-ul { 
+	list-style-type:none; 
+	 padding-left:0px; 
+	 margin-left:2px;
+ }
+ 
+.footer-ul li {
+	color:#a0a3a4; 
+	font-size:12px;
+}
+
+.footer-ul li a{
+	color:#a0a3a4; 
+	font-size:12px;
+}
+
+
+.footer-ul li a:hover {
+	color:#ff670f; 
+}
+ .heading {
+	 font-size:17px;
+	 font-weight:700;
+	 color:#d9d6d6;
+	 margin-bottom:10px;
+}
+
+
+
+.registerForm{
+	margin:0px;
+}
+/* __________ CONTENT _________ */
+
+.contentPadding{
+	padding-bottom:150px;
+}
+
+/* __________ FORUM _________ */
+
+#topicHeader {
+	margin-bottom:20px;
+}
+
+#addTopicBtn{	
+	margin-left:0px;
+	margin-top:0px;
+}
+
+.addTopicForm {
+	margin-left:-15px;
+	margin-bottom:20px;
+}
+
+.topicTitle {
+	font-size: 20px; 
+	font-weight:bold;
+}
+
+.topicDate {
+	font-size: 14px; 
+	color:#ff670f; 
+}
+
+
+.postTitle {
+	font-size: 18px; 
+	font-weight:bold;
+}
+
+.postDate {
+	font-size: 14px; 
+
+}
+
+.postList{
+	margin:30px;
+}
+
+.topicList{
+	margin-bottom:100px;
+}
+
+/* ___________ LOGIN __________*/
+
+.loginForm{
+	margin-top:30px;
+}
+
+/* ___________ MY ACCOUNT __________*/
+
+#accountForm{
+	margin-top:70px;
+	margin-bottom:200px;
+}
+
+/* ___________ CONTACT US __________*/
+
+.contactForm{
+	margin-top:30px;
+}
+
+/* ___________ PLAYERS __________*/
+
+.playerGridInfo p  {
+	padding:0px;
+	margin:0px;
+}
+
+.gridItem{
+	background-color:#F2F2F2;
+	margin:32px;
+}
+
+
+/* ___________ PLAYER DETAILS __________*/
+.detailsTable td{
+	 font-size:14px;
+}
+
+.detailsTableHeading {
+	 font-size:15px;
+	 font-weight:bold;
+}
+
+.panel-info{
+	margin-bottom:100px;
+}
+
+#player_name{
+	color:#000;
+	font-weight:bold;
+	margin-left:30px;
+	font-size:22px;
+}
