@@ -3,12 +3,12 @@
 	//************** USER **************
 	function addUser($firstName, $lastName, $email, $pass){
 			
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysql_error());
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			
 			die("Database selection failed: " . mysqli_error());
@@ -24,12 +24,12 @@
 	}
 	  
 	function getUserId($email, $pass){
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			die("Database selection failed: " . mysqli_error($con));
 		}
@@ -47,12 +47,12 @@
 	} 
 	
 	function getUserForId($id){
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			die("Database selection failed: " . mysqli_error($con));
 		}
@@ -84,12 +84,12 @@
 	
 	function updateUser($id, $firstName, $lastName, $email, $pass){
 			
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysql_error());
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			
 			die("Database selection failed: " . mysqli_error());
@@ -133,12 +133,12 @@
 	
 	function getTopics() {
 	
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			die("Database selection failed: " . mysqli_error($con));
 		}
@@ -164,12 +164,12 @@
 	
 	function addTopic($title, $user_id) {
 	
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysql_error());
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			
 			die("Database selection failed: " . mysqli_error());
@@ -184,12 +184,12 @@
 	
 	function getTopicsForPlayer($firstname, $lastname) {
 	
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			die("Database selection failed: " . mysqli_error($con));
 		}
@@ -217,12 +217,12 @@
 	
 	function getPostsForTopic($topic_id) {
 	
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			die("Database selection failed: " . mysqli_error($con));
 		}
@@ -249,12 +249,12 @@
 	
 	function addPost($post_description, $user_id,$topic_id) {
 	
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysql_error());
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			
 			die("Database selection failed: " . mysqli_error());
@@ -271,12 +271,12 @@
 	
 	function getPlayers() {
 	
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			die("Database selection failed: " . mysqli_error($con));
 		}
@@ -310,12 +310,12 @@
 	
 	function getPlayersForKeyword($key) {
 	
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			die("Database selection failed: " . mysqli_error($con));
 		}
@@ -349,12 +349,12 @@
 	
 	function getPlayerById($player_id) {
 	
-		$con = mysqli_connect("localhost","root","");
+		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
 		}
 			
-		$db_select = mysqli_select_db($con, "pawcd");
+		$db_select = mysqli_select_db($con, "twdm");
 		if (!$db_select) {
 			die("Database selection failed: " . mysqli_error($con));
 		}

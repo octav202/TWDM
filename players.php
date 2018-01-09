@@ -55,7 +55,7 @@ session_start();
 				<div class="col-md-3">
 					<div class="gridItem">
 						<div class="col-md-12 ">
-						  <img alt="player" src="<?php echo $player['img'] ?>" class="img-responsive playerImage"/>
+						  <img alt="<?php echo $player['img']?>" src="<?php echo $player['img']?>" class="img-responsive playerImage"/>
 						</div>
 						
 						<div class="col-md-12 playerGridInfo">
