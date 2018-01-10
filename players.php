@@ -52,18 +52,18 @@ session_start();
 			foreach(Controller::getPlayers() as $player) {
 			?>
 			
-			<a href="details.php?id=<?php echo $player['player_id']?>">
+			<a href="details.php?id=<?php echo $player->getId()?>">
 				<div class="col-md-3">
 					<div class="gridItem">
 						<div class="col-md-12 ">
-						  <img alt="<?php echo $player['img']?>" src="<?php echo $player['img']?>" class="img-responsive playerImage"/>
+						  <img alt="Player" src="<?php echo $player->getImage()?>" class="img-responsive playerImage"/>
 						</div>
 						
 						<div class="col-md-12 playerGridInfo">
-							<h3><?php echo $player['first_name']. " " . $player['last_name'] ?></h3>
-							<p>Country : <?php echo $player['country'] ?></p>
-							<p>Age : <?php echo $player['age'] ?></p>
-							<p>Ranking : <?php echo $player['ranking'] ?></p>
+							<h3><?php echo $player->getFirstName(). " " . $player->getLastName(); ?></h3>
+							<p>Country : <?php echo $player->getCountry() ?></p>
+							<p>Age : <?php echo $player->getAge() ?></p>
+							<p>Ranking : <?php echo $player->getRanking() ?></p>
 						</div>
 					</div>
 				</div>

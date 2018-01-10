@@ -40,13 +40,13 @@ session_start();
 			<div class="panel panel-info">
 			
 				<div class="panel-heading">
-					<h4 id = "player_name"><?php echo $player['first_name']." ".$player['last_name'] ?></h4>
+					<h4 id = "player_name"><?php echo $player->getFirstName()." ".$player->getLastName() ?></h4>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 					
 						<div class="col-md-3"> 
-							<img alt="User Pic" class="img-responsive" src="<?php echo $player['img']?>" />
+							<img alt="User Pic" class="img-responsive" src="<?php echo $player->getImage()?>" />
 						</div>
 						
 						
@@ -54,28 +54,28 @@ session_start();
 							<table class="table detailsTable">
 								<tbody>
 								<tr>
-									<td class="detailsTableHeading">Name:</td> <td><?php echo $player['first_name']." ".$player['last_name'] ?></td>
+									<td class="detailsTableHeading">Name:</td> <td><?php echo $player->getFirstName." ".$player->getLastName() ?></td>
 								</tr>
 								<tr>
-									<td class="detailsTableHeading">Country :</td> <td><?php echo $player['country']?></td>
+									<td class="detailsTableHeading">Country :</td> <td><?php echo $player->getCountry()?></td>
 								</tr>
 								<tr>
-									<td class="detailsTableHeading">Birthplace</td><td><?php echo $player['birthplace']?></td>
+									<td class="detailsTableHeading">Birthplace</td><td><?php echo $player->getBirthplace()?></td>
 								</tr> 
 								<tr>
-									<td class="detailsTableHeading">Age</td><td><?php echo $player['age']?></td>
+									<td class="detailsTableHeading">Age</td><td><?php echo $player->getAge()?></td>
 								</tr>
 								<tr>
-									<td class="detailsTableHeading">ATP Ranking</td> <td><?php echo $player['ranking']?></td>
+									<td class="detailsTableHeading">ATP Ranking</td> <td><?php echo $player->getRanking()?></td>
 								</tr>
 								<tr>
-									<td class="detailsTableHeading">Weight</td><td><?php echo $player['weight']?></td>
+									<td class="detailsTableHeading">Weight</td><td><?php echo $player->getWeight()?></td>
 								</tr>
 								<tr>
-									<td class="detailsTableHeading">Height</td> <td><?php echo $player['height']?></td> 
+									<td class="detailsTableHeading">Height</td> <td><?php echo $player->getHeight()?></td> 
 								</tr>
 								<tr>
-									<td class="detailsTableHeading">About</td> <td><?php echo $player['about']?></td> 
+									<td class="detailsTableHeading">About</td> <td><?php echo $player->getAbout()?></td> 
 								</tr> 
 								<tr>
 									<td class="detailsTableHeading">Topics</td> 

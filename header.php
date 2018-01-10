@@ -14,7 +14,7 @@ $usr = Controller::getUserForId($current_user);
 				<?php if($current_user == 0) {?>
 					<li><a id="headerLogin"  href="login.php">Log In</a></li>
 				<?php } else {?>
-					<li><a href="account.php">Logged in as <?php echo $usr['firstName'].' '.$usr['lastName']?></a></li>
+					<li><a href="account.php">Logged in as <?php echo $usr->getFirstName().' '.$usr->getLastName()?></a></li>
 					<li><a id="headerLogout" href="login.php">Log Out</a></li>
 				<?php }?>
 			</ul>

@@ -74,19 +74,19 @@ if(isset($_POST['submit'])){
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" name="firstName" id="firstName" class="form-control input-lg" placeholder="First Name" tabindex="1" value = "<?php echo $user['firstName']; ?>"/>
+								<input type="text" name="firstName" id="firstName" class="form-control input-lg" placeholder="First Name" tabindex="1" value = "<?php echo $user->getFirstName(); ?>"/>
 							</div>
 						</div>
 						
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" name="lastName" id="lastName" class="form-control input-lg" placeholder="Last Name" tabindex="2" value = "<?php echo $user['lastName']; ?>"/>
+								<input type="text" name="lastName" id="lastName" class="form-control input-lg" placeholder="Last Name" tabindex="2" value = "<?php echo $user->getLastName(); ?>"/>
 							</div>
 						</div>
 					</div>
 					
 					<div class="form-group">
-						<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="3" value = "<?php echo $user['email']; ?>"/>
+						<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="3" value = "<?php echo $user->getEmail(); ?>"/>
 					</div>
 					
 					<div class="form-group">

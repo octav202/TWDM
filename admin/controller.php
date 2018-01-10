@@ -67,22 +67,21 @@ class Controller {
 			
 		$sql = "SELECT * FROM users where user_id = ".$id; 
 		
-		$user = array("user_id"=>0,
-						   "firstName"=>'', 
-						   "lastName"=>'',
-						   "email"=>'',
-						   "pass"=>'',
-						   "role"=>'');
+		$user = new User(0,'', '', '' , '' , '');
+
 		$result = mysqli_query($con, $sql);
 		
 		
 		while($row = mysqli_fetch_array($result)) {
-			$user = array("user_id"=>$row['user_id'],
-						   "firstName"=>$row['firstName'], 
-						   "lastName"=>$row['lastName'],
-						   "email"=>$row['email'],
-						   "pass"=>$row['pass'],
-						   "role"=>$row['role']);
+			
+			$user = new User($row['user_id'],
+					 $row['firstName'], 
+					 $row['lastName'],
+					 $row['email'],
+					 $row['pass'],
+					 $row['role']);
+
+			
 		}
 		
 		mysqli_close($con);
@@ -157,10 +156,10 @@ class Controller {
 		$result = mysqli_query($con, $sql);
 		
 		while($row = mysqli_fetch_array($result)) {
-			$topic = array("topic_id"=>$row['topic_id'],
-						   "title"=>$row['title'], 
-						   "topic_date"=>$row['topic_date'],
-						   "user_id"=>$row['user_id']);
+			$topic = new Topic($row['topic_id'],
+					   $row['title'], 
+					   $row['topic_date'],
+					   $row['user_id']);
 			
 			$topics[] = $topic;
 		}
@@ -295,19 +294,20 @@ class Controller {
 		$result = mysqli_query($con, $sql);
 		
 		while($row = mysqli_fetch_array($result)) {
-			$player = array("player_id"=>$row['player_id'],
-						   "first_name"=>$row['first_name'], 
-						   "last_name"=>$row['last_name'],
-						   "country"=>$row['country'],
-						   "birthplace"=>$row['birthplace'],
-						   "age"=>$row['age'],
-						   "ranking"=>$row['ranking'], 
-						   "weight"=>$row['weight'],
-						   "height"=>$row['height'],
-						   "coach"=>$row['coach'], 
-						   "about"=>$row['about'],
-						   "img"=>$row['img']);
 			
+			$player = new Player($row['player_id'],
+					$row['first_name'], 
+					$row['last_name'],
+					$row['country'],
+					$row['birthplace'],
+					$row['age'],
+					$row['ranking'], 
+					$row['weight'],
+					$row['height'],
+					$row['coach'], 
+					$row['about'],
+					$row['img']);
+
 			$players[] = $player;
 		}
 		
@@ -373,18 +373,19 @@ class Controller {
 		$result = mysqli_query($con, $sql);
 		
 		while($row = mysqli_fetch_array($result)) {
-			$player = array("player_id"=>$row['player_id'],
-						   "first_name"=>$row['first_name'], 
-						   "last_name"=>$row['last_name'],
-						   "country"=>$row['country'],
-						   "birthplace"=>$row['birthplace'],
-						   "age"=>$row['age'],
-						   "ranking"=>$row['ranking'], 
-						   "weight"=>$row['weight'],
-						   "height"=>$row['height'],
-						   "coach"=>$row['coach'], 
-						   "about"=>$row['about'],
-						   "img"=>$row['img']);
+		  	$player = new Player($row['player_id'],
+					$row['first_name'], 
+					$row['last_name'],
+					$row['country'],
+					$row['birthplace'],
+					$row['age'],
+					$row['ranking'], 
+					$row['weight'],
+					$row['height'],
+					$row['coach'], 
+					$row['about'],
+					$row['img']);
+
 
 		}
 		

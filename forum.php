@@ -77,26 +77,26 @@ if(isset($_GET['id'])){
 	<?php
 	foreach(Controller::getTopics() as $topic) {
 		
-		$topic_user = Controller::getUserForId($topic['user_id']);
+		$topic_user = Controller::getUserForId($topic->getUserId());
 	?>
 	
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 			<h4 class="panel-title">
-			  <a data-toggle="collapse" data-parent="#accordion" href="<?php echo "#".$topic['topic_id']?>">
-				<span class="topicTitle"><?php echo $topic['title'] ?> </span>
-				<span class="topicDate pull-right"> <?php echo "  Created by ".$topic_user['firstName'].' '.$topic_user['lastName'].",".$topic['topic_date'];?></span>
+			  <a data-toggle="collapse" data-parent="#accordion" href="<?php echo "#".$topic->getId()?>">
+				<span class="topicTitle"><?php echo $topic->getTitle() ?> </span>
+				<span class="topicDate pull-right"> <?php echo "  Created by ".$topic_user->getFirstName().' '.$topic_user->getLastName().", ".$topic->getDate();?></span>
 			  </a>
 			</h4>
 		  </div>
-		  <div id="<?php echo $topic['topic_id']?>" class="panel-collapse collapse <?php if($topic['topic_id'] == $active_topic) echo "in";?> ">
+		  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php if($topic->getId() == $active_topic) echo "in";?> ">
 		  
 		  <!-- POSTS -->
 		  
 			<div class="panel-body">
 			
 			<?php
-			$posts = Controller::getPostsForTopic($topic['topic_id']);
+			$posts = Controller::getPostsForTopic($topic->getid());
 			if($posts == null || sizeof($posts) == 0){
 			?>
 			
@@ -145,7 +145,7 @@ if(isset($_GET['id'])){
 							
 							<div class="col-md-0">
 								<div class="form-group">
-									<input type="hidden" name="topic_id" value ="<?php echo $topic['topic_id']?>"/>
+									<input type="hidden" name="topic_id" value ="<?php echo $topic->getId()?>"/>
 								</div>
 							</div>
 							
