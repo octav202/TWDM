@@ -1,5 +1,11 @@
 <?php
 
+include("../includes/models/player.php");
+include("../includes/models/post.php");
+include("../includes/models/topic.php");
+include("../includes/models/user.php");
+
+
 class Controller {
  
 	//************** USER **************
