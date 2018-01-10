@@ -8,19 +8,23 @@ session_start();
 <?php
 $curr_user = Controller::getLoggedUser();
 
-if(isset($_POST['submit']) && $curr_user !=0 ){
+// Add Topic
+if (isset($_POST['submit']) && $curr_user !=0 ){
 	$title = isset($_POST["title"]) ? $_POST["title"] : "";
 	Controller::addTopic($title,$curr_user);
 }
 
-if(isset($_POST['submit_post']) && $curr_user !=0 ){
+// Add Post
+if (isset($_POST['submit_post']) && $curr_user !=0 ){
 	$post_description = isset($_POST["post_description"]) ? $_POST["post_description"] : "";
 	$topic_id = isset($_POST["topic_id"]) ? $_POST["topic_id"] : "";
 	Controller::addPost($post_description,$curr_user,$topic_id);
 }
+
+// Get Active topic
 $active_topic = 0;	
-if(isset($_GET['id'])){
-			$active_topic = $_GET['id'];
+if (isset($_GET['id'])) {
+	$active_topic = $_GET['id'];
 } 
 ?>
 
@@ -76,10 +80,9 @@ if(isset($_GET['id'])){
   <div class="panel-group topicList" id="accordion">
 	<?php
 	foreach(Controller::getTopics() as $topic) {
-		
 		$topic_user = Controller::getUserForId($topic->getUserId());
 	?>
-	
+		<!-- PANEL HEADER -->
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 			<h4 class="panel-title">
@@ -89,19 +92,17 @@ if(isset($_GET['id'])){
 			  </a>
 			</h4>
 		  </div>
+
+		  <!-- PANEL BODY -->	
 		  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php if($topic->getId() == $active_topic) echo "in";?> ">
-		  
 		  <!-- POSTS -->
 		  
 			<div class="panel-body">
-			
 			<?php
-			$posts = Controller::getPostsForTopic($topic->getid());
+			$posts = Controller::getPostsForTopic($topic->getId());
 			if($posts == null || sizeof($posts) == 0){
 			?>
-			
 				<h4> No posts.. </h4>
-			
 			<?php 
 			} else {
 			?>
@@ -110,11 +111,11 @@ if(isset($_GET['id'])){
 					
 					<?php
 					foreach($posts as $post) {
-						$post_user = Controller::getUserForId($post['user_id']);
+						$post_user = Controller::getUserForId($post->getUserId());
 					?>
 						<li class="list-group-item">
-							<span class="postTitle"><?php echo $post['post_description']?> </span>
-							<span class="postDate pull-right"> <?php echo $post_user['firstName'].' '.$post_user['lastName'].", ".$post['post_date']?></span>
+							<span class="postTitle"><?php echo $post->getDescription()?> </span>
+							<span class="postDate pull-right"> <?php echo $post_user->getFirstName().' '.$post_user->getLastName().", ".$post->getDate()?></span>
 					
 						</li>
 						
@@ -168,6 +169,7 @@ if(isset($_GET['id'])){
 	
   </div> 
 </div>
+
 	
 	<?php include("footer.php"); ?>
 		

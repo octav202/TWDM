@@ -48,7 +48,6 @@ session_start();
 		<div class="row contentPadding" id= "players_row">
 
 			<?php
-			echo "Getting Players";
 			foreach(Controller::getPlayers() as $player) {
 			?>
 			

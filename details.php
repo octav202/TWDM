@@ -83,10 +83,10 @@ session_start();
 										<ul>
 										
 										<?php
-											$topics = Controller::getTopicsForPlayer($player['first_name'],$player['last_name']);
+											$topics = Controller::getTopicsForPlayer($player->getFirstName(),$player->getLastName());
 											foreach($topics as $topic) {
-												$link = "forum.php?id=".$topic['topic_id'];
-												echo "<li><a href=\"".$link."\">".$topic['title']."</a></li>";
+												$link = "forum.php?id=".$topic->getId();
+												echo "<li><a href=\"".$link."\">".$topic->getTitle()."</a></li>";
 											}
 										?>
 									

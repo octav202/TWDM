@@ -201,17 +201,19 @@ class Controller {
 			die("Database selection failed: " . mysqli_error($con));
 		}
 			
-		$sql = "SELECT topic.topic_id,topic.title from topic,post where topic.topic_id = post.topic_id and
+		$sql = "SELECT topic.topic_id,topic.title,topic.topic_date,topic.user_id from topic,post where topic.topic_id = post.topic_id and
 		(post.post_description LIKE '%".$firstname."%' OR post.post_description LIKE '%".$lastname."%')
-		UNION SELECT topic.topic_id,topic.title from topic where
+		UNION SELECT topic.topic_id,topic.title,topic.topic_date,topic.user_id from topic where
 		 topic.title LIKE '%".$firstname."%' OR topic.title LIKE '%".$lastname."%'"; 
 		
 		$result = mysqli_query($con, $sql);
 		$topics = array();
 		
 		while($row = mysqli_fetch_array($result)) {
-			$topic = array("topic_id"=>$row['topic_id'],
-						   "title"=>$row['title']);
+			$topic = new Topic($row['topic_id'],
+					   $row['title'],
+					   $row['topic_date'],
+					   $row['user_id']);
 			$topics[] = $topic;
 		}
 		
@@ -240,12 +242,13 @@ class Controller {
 		$result = mysqli_query($con, $sql);
 		
 		while($row = mysqli_fetch_array($result)) {
-			$post = array("post_id"=>$row['post_id'],
-						   "post_description"=>$row['post_description'], 
-						   "post_date"=>$row['post_date'],
-						   "user_id"=>$row['user_id'],
-						   "topic_id"=>$row['topic_id']);
-			
+
+			$post = new Post($row['post_id'],
+					 $row['post_description'], 
+					 $row['post_date'],
+					 $row['user_id'],
+					 $row['topic_id']);
+
 			$posts[] = $post;
 		}
 		
@@ -277,7 +280,7 @@ class Controller {
 	//************** PLAYERS **************
 	
 	public static function getPlayers() {
-		echo "getPlayers()";
+
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
