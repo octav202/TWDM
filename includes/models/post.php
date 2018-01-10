@@ -1,11 +1,12 @@
 <?php
+
 class Post {
 
-	private id;
-	private description;
-	private date;
-	private userId;
-	private topicId;
+	private $id;
+	private $description;
+	private $date;
+	private $userId;
+	private $topicId;
 
 	public function __construct($id, $description, $date, $userId, $topicId)  { 
 		$this->id = $id;

@@ -1,21 +1,21 @@
 <?php
 class Player {
 
-	private id;
-	private firstName;
-	private lastName;
-	private country;
-	private birthplace;
-	private age;
-	private ranking;
-	private weight;
-	private height;
-	private coach;
-	private about;
-	private img;
+	private $id;
+	private $firstName;
+	private $lastName;
+	private $country;
+	private $birthplace;
+	private $age;
+	private $ranking;
+	private $weight;
+	private $height;
+	private $coach;
+	private $about;
+	private $img;
 
-	public function __construct($id, $firstName, $lastName, $country,$birthplace, $age, $ranking, $weight
-,$height, $coach, $about, $img)  { 
+		public function __construct($id, $firstName, $lastName, $country,$birthplace, $age, $ranking, $weight
+,$height, $coach, $about, $img) { 
 
 		$this->id = $id;
 		$this->firstName = $firstName;
@@ -31,7 +31,7 @@ class Player {
 		$this->img = $img;
 	} 
 
-	// ID
+		// ID
 	public function setId($id) {
   		$this->id = $id;
 	}
@@ -137,7 +137,7 @@ class Player {
 
 	public function getImage() {
   		return $this->img;
-	}		
+	}	
 
 }
 

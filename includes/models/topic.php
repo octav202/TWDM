@@ -1,10 +1,10 @@
 <?php
 class Topic {
 
-	private id;
-	private title;
-	private date;
-	private userId;
+	private $id;
+	private $title;
+	private $date;
+	private $userId;
 
 	public function __construct($id, $title, $date, $userId)  { 
 		$this->id = $id;
