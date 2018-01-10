@@ -7,9 +7,9 @@
 		$key = $_GET["key"];
 		$filtered_players;
 		if($key=="") {
-			$filtered_players = getPlayers();
+			$filtered_players = Controller::getPlayers();
 		} else {
-			$filtered_players = getPlayersForKeyword($key);
+			$filtered_players = Controller::getPlayersForKeyword($key);
 		}
 		
 		$response="";

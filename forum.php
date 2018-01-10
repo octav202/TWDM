@@ -6,17 +6,17 @@ session_start();
 ?>
 
 <?php
-$curr_user = getLoggedUser();
+$curr_user = Controller::getLoggedUser();
 
 if(isset($_POST['submit']) && $curr_user !=0 ){
 	$title = isset($_POST["title"]) ? $_POST["title"] : "";
-	addTopic($title,$curr_user);
+	Controller::addTopic($title,$curr_user);
 }
 
 if(isset($_POST['submit_post']) && $curr_user !=0 ){
 	$post_description = isset($_POST["post_description"]) ? $_POST["post_description"] : "";
 	$topic_id = isset($_POST["topic_id"]) ? $_POST["topic_id"] : "";
-	addPost($post_description,$curr_user,$topic_id);
+	Controller::addPost($post_description,$curr_user,$topic_id);
 }
 $active_topic = 0;	
 if(isset($_GET['id'])){
@@ -75,9 +75,9 @@ if(isset($_GET['id'])){
   <!-- TOPICS -->
   <div class="panel-group topicList" id="accordion">
 	<?php
-	foreach(getTopics() as $topic) {
+	foreach(Controller::getTopics() as $topic) {
 		
-		$topic_user = getUserForId($topic['user_id']);
+		$topic_user = Controller::getUserForId($topic['user_id']);
 	?>
 	
 		<div class="panel panel-default">
@@ -96,7 +96,7 @@ if(isset($_GET['id'])){
 			<div class="panel-body">
 			
 			<?php
-			$posts = getPostsForTopic($topic['topic_id']);
+			$posts = Controller::getPostsForTopic($topic['topic_id']);
 			if($posts == null || sizeof($posts) == 0){
 			?>
 			
@@ -110,7 +110,7 @@ if(isset($_GET['id'])){
 					
 					<?php
 					foreach($posts as $post) {
-						$post_user = getUserForId($post['user_id']);
+						$post_user = Controller::getUserForId($post['user_id']);
 					?>
 						<li class="list-group-item">
 							<span class="postTitle"><?php echo $post['post_description']?> </span>

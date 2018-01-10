@@ -1,5 +1,5 @@
-<?php $current_user  = getLoggedUser();
-$usr = getUserForId(getLoggedUser());
+<?php $current_user  = Controller::getLoggedUser();
+$usr = Controller::getUserForId($current_user);
  ?>
 
 <nav class="navbar navbar-default header">

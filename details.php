@@ -28,7 +28,7 @@ session_start();
 		<?php 
 		
 		if(isset($_GET['id'])){
-			$player = getPlayerById($_GET['id']);
+			$player = Controller::getPlayerById($_GET['id']);
 		} else {
 			exit();
 		}
@@ -83,7 +83,7 @@ session_start();
 										<ul>
 										
 										<?php
-											$topics = getTopicsForPlayer($player['first_name'],$player['last_name']);
+											$topics = Controller::getTopicsForPlayer($player['first_name'],$player['last_name']);
 											foreach($topics as $topic) {
 												$link = "forum.php?id=".$topic['topic_id'];
 												echo "<li><a href=\"".$link."\">".$topic['title']."</a></li>";

@@ -2,17 +2,17 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 include("admin/controller.php");	
-logUserOut();
+Controller::logUserOut();
 	
 if(isset($_POST['submit'])){
 	$email = isset($_POST["email"]) ? $_POST["email"] : "";
 	$pass = isset($_POST["password"]) ? $_POST["password"] : "";
 	
-	$user_id = getUserId($email, $pass);
+	$user_id = Controller::getUserId($email, $pass);
 	
 	if($user_id != 0){
 		echo "Login Successful ".$user_id;
-		logUserIn($user_id);
+		Controller::logUserIn($user_id);
 	} else {
 		echo "Login Failed";
 	}

@@ -7,12 +7,12 @@ if(isset($_POST['submit'])){
 	$lastName = isset($_POST["lastName"]) ? $_POST["lastName"] : "";
 	$email = isset($_POST["email"]) ? $_POST["email"] : "";
 	$pass = isset($_POST["password"]) ? $_POST["password"] : "";
-	
-	$id = addUser($firstName, $lastName,$email ,$pass);
+	echo "ADDING USER..";
+	$id = Controller::addUser($firstName, $lastName,$email ,$pass);
 	echo "ID ADDED : ".$id;
 	if($id !=0){
 		echo "User Added";
-		logUserIn($id);
+		Controller::logUserIn($id);
 	}
 }
 ?>

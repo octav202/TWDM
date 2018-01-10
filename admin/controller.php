@@ -1,7 +1,9 @@
 <?php
+
+class Controller {
  
 	//************** USER **************
-	function addUser($firstName, $lastName, $email, $pass){
+	public static function addUser($firstName, $lastName, $email, $pass){
 			
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -20,10 +22,10 @@
 		mysqli_close($con);
 		
 		
-		return getUserId($email, $pass);
+		return Controller::getUserId($email, $pass);
 	}
 	  
-	function getUserId($email, $pass){
+	public static function getUserId($email, $pass){
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
@@ -46,7 +48,7 @@
 		return $id;		
 	} 
 	
-	function getUserForId($id){
+	public static function getUserForId($id){
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
@@ -82,7 +84,7 @@
 		return $user;		
 	} 
 	
-	function updateUser($id, $firstName, $lastName, $email, $pass){
+	public static function updateUser($id, $firstName, $lastName, $email, $pass){
 			
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -103,7 +105,7 @@
 	
 	//************** AUTH **************
 	
-	function logUserIn($id){
+	public static function logUserIn($id){
 		
 		session_start();		
 		$_SESSION['auth'] = 1;
@@ -112,7 +114,7 @@
 		die();
 	}
 	
-	function getLoggedUser(){
+	public static function getLoggedUser(){
 		if (!isset($_SESSION['auth']) || $_SESSION['auth'] != 1) {
 		   return 0;
 		} 
@@ -124,14 +126,14 @@
 		}
 	}
 	
-	function logUserOut() {
+	public static function logUserOut() {
 		$_SESSION['auth'] = 0;
 		setcookie("user_id", 0, time()-(60*60)); //clear cookie 
 	}
 	
 	//************** TOPICS **************
 	
-	function getTopics() {
+	public static function getTopics() {
 	
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -162,7 +164,7 @@
 		return $topics;	
 	}
 	
-	function addTopic($title, $user_id) {
+	public static function addTopic($title, $user_id) {
 	
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -182,7 +184,7 @@
 		return $result;
 	}
 	
-	function getTopicsForPlayer($firstname, $lastname) {
+	public static function getTopicsForPlayer($firstname, $lastname) {
 	
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -215,7 +217,7 @@
 	
 	//************** POSTS **************
 	
-	function getPostsForTopic($topic_id) {
+	public static function getPostsForTopic($topic_id) {
 	
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -247,7 +249,7 @@
 		return $posts;	
 	}
 	
-	function addPost($post_description, $user_id,$topic_id) {
+	public static function addPost($post_description, $user_id,$topic_id) {
 	
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -269,8 +271,8 @@
 	
 	//************** PLAYERS **************
 	
-	function getPlayers() {
-	
+	public static function getPlayers() {
+		echo "getPlayers()";
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
 			die('Could not connect: ' . mysqli_error($con));
@@ -308,7 +310,7 @@
 		return $players;	
 	}
 	
-	function getPlayersForKeyword($key) {
+	public static function getPlayersForKeyword($key) {
 	
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -347,7 +349,7 @@
 		return $players;	
 	}
 	
-	function getPlayerById($player_id) {
+	public static function getPlayerById($player_id) {
 	
 		$con = mysqli_connect("localhost","root","root");
 		if (!$con) {
@@ -384,5 +386,5 @@
 		
 		return $player;	
 	}
-	
+}
 ?>

@@ -3,14 +3,14 @@
 <?php 
 include("admin/controller.php");
 session_start();
-$user = getUserForId(getLoggedUser());
+$user = Controller::getUserForId(Controller::getLoggedUser());
 
 if(isset($_POST['submit'])){
 	$firstName = isset($_POST["firstName"]) ? $_POST["firstName"] : "";
 	$lastName = isset($_POST["lastName"]) ? $_POST["lastName"] : "";
 	$email = isset($_POST["email"]) ? $_POST["email"] : "";
 	$pass = isset($_POST["password"]) ? $_POST["password"] : "";
-	if(updateUser(getLoggedUser(),$firstName, $lastName,$email ,$pass)){
+	if(Controller::updateUser(Controller::getLoggedUser(),$firstName, $lastName,$email ,$pass)){
 		echo "User Updated";
 	}
 }
