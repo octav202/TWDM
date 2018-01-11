@@ -41,8 +41,8 @@ session_start();
  </head>
  
  <body>
-	<?php include("header.php"); ?>
-	<?php include("menu.php"); ?>
+	<?php include("includes/header.php"); ?>
+	<?php include("includes/menu.php"); ?>
 
 	<div class="container">
 		<div class="row contentPadding" id= "players_row">
@@ -77,7 +77,7 @@ session_start();
 	
 	
 	
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 	
 	
 	

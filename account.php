@@ -62,8 +62,8 @@ if(isset($_POST['submit'])){
  </head>
 	<body>
 	
-	<?php include("header.php"); ?>
-	<?php include("menu.php"); ?>
+	<?php include("includes/header.php"); ?>
+	<?php include("includes/menu.php"); ?>
 	
 		<div class="row" id = "accountForm">
 			<div class="col-md-4 col-md-offset-4">
@@ -103,7 +103,7 @@ if(isset($_POST['submit'])){
 			</div>
 		</div>
 		
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 	</body>
  
 </html> 

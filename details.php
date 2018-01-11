@@ -16,8 +16,8 @@ session_start();
  </head>
  
  <body>
-	<?php include("header.php"); ?>
-	<?php include("menu.php"); ?>
+	<?php include("includes/header.php"); ?>
+	<?php include("includes/menu.php"); ?>
 	
 	
 	<div class="container">
@@ -106,7 +106,7 @@ session_start();
       </div>
     </div>
 	
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 		
  </body>
  

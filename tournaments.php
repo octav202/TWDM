@@ -19,10 +19,10 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
  </head>
 	<body>
 	
-	<?php include("header.php"); ?>
-	<?php include("menu.php"); ?>
+	<?php include("includes/header.php"); ?>
+	<?php include("includes/menu.php"); ?>
 	
-	
+
 	<div class="container forum">
 
 
@@ -91,7 +91,7 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 		</div>
 
 
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 	</body>
  
 </html> 
