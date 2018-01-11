@@ -221,3 +221,8 @@ footer {
 .rankingTable th,td{
 	 font-size:18px;
 }
+
+/* ___________ TOURNAMENTS __________*/
+.tournImage{
+	 margin:15px;
+}

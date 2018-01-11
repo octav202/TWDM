@@ -34,11 +34,10 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 				<br/>
 				<!-- PANEL HEADER -->
 				<div class="panel panel-default">
-				  <div class="panel-heading">
+				  <div class="panel-heading" style="background-color: <?php echo Controller::getColorForSurface($tourn->getSurface())?>;">
 					<h4 class="panel-title">
 					  <a data-toggle="collapse" data-parent="#accordion" href="<?php echo "#".$tourn->getTournamentId()?>">
 						<span class="topicTitle"><?php echo $tourn->getTitle() ?> </span>
-						<span class="topicDate pull-right"> <?php echo $tourn->getType()?></span>
 					  </a>
 					</h4>
 				  </div>
@@ -50,7 +49,7 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 				
 						<div class="row">
 					
-							<div class="col-md-2"> 
+							<div class="col-md-2 tournImage"> 
 								<img alt="Type" class="img-responsive" src="<?php Controller::getImageForTournamentType($tourn->getType())?>" />
 							</div>
 						

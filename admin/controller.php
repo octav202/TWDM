@@ -485,6 +485,23 @@ class Controller {
 
 	}
 
+	public static function getColorForSurface($type) {
+		switch ($type) {
+		    case "Indoor Hard":
+			echo "#468499";
+			break;
+		    case "Outdoor Hard":
+			echo "#468499";
+			break;
+		    case "Outdoor Clay":
+			echo "#ff7f50";
+			break;
+		    case "Outdoor Grass":
+			echo "#8bbb87";
+			break;
+		}
+
+	}
 
 }
 ?>
