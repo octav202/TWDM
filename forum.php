@@ -82,6 +82,7 @@ if (isset($_GET['id'])) {
 	foreach(Controller::getTopics() as $topic) {
 		$topic_user = Controller::getUserForId($topic->getUserId());
 	?>
+		<br/>
 		<!-- PANEL HEADER -->
 		<div class="panel panel-default">
 		  <div class="panel-heading">
@@ -94,7 +95,7 @@ if (isset($_GET['id'])) {
 		  </div>
 
 		  <!-- PANEL BODY -->	
-		  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php if($topic->getId() == $active_topic) echo "in";?> ">
+		  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php /*if($topic->getId() == $active_topic)*/ echo "in";?> ">
 		  <!-- POSTS -->
 		  
 			<div class="panel-body">

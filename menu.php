@@ -3,6 +3,7 @@
 			<ul class="nav navbar-nav menuBarList">
 				<li><a href="players.php">Players</a></li>
 				<li><a href="forum.php">Forum</a></li>
+				<li><a href="ranking.php">Ranking</a></li>
 				
 				<?php if($current_user == 0) {?>
 					<li><a href="login.php">Log In</a></li>

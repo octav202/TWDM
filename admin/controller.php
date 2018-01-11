@@ -4,6 +4,7 @@ include("includes/models/player.php");
 include("includes/models/post.php");
 include("includes/models/topic.php");
 include("includes/models/user.php");
+include("includes/models/rank.php");
 
 
 class Controller {
@@ -396,5 +397,38 @@ class Controller {
 		
 		return $player;	
 	}
+
+	//************** RANKING **************
+	
+	public static function getRanking() {
+	
+		$con = mysqli_connect("localhost","root","root");
+		if (!$con) {
+			die('Could not connect: ' . mysqli_error($con));
+		}
+			
+		$db_select = mysqli_select_db($con, "twdm");
+		if (!$db_select) {
+			die("Database selection failed: " . mysqli_error($con));
+		}
+			
+		$sql = "SELECT * FROM RANKING"; 
+		
+		$ranks = array();
+		$result = mysqli_query($con, $sql);
+		
+		while($row = mysqli_fetch_array($result)) {
+			$rank = new Rank($row['rank_id'],
+					 $row['player_id'],
+					 $row['points']);
+			
+			$ranks[] = $rank;
+		}
+		
+		mysqli_close($con);
+		
+		return $ranks;	
+	}
+	
 }
 ?>
