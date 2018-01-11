@@ -22,42 +22,75 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 	<?php include("header.php"); ?>
 	<?php include("menu.php"); ?>
 	
-	<div class="container">
-		  <br>
-		  <h1>Tournaments</h1> 
-		  <br>       
-		  <table class="table table-striped rankingTable">
-		    <thead>
-		      <tr>
-			<th>Position</th></h4>
-			<th>Firstname</th>
-			<th>Lastname</th>
-			<th>Points</th>
-		      </tr>
-		    </thead>
-		    <tbody>
+	
+	<div class="container forum">
+
+
+		  <!-- TOPICS -->
+		  <div class="panel-group topicList" id="accordion">
 			<?php
-			foreach(Controller::getRanking() as $rank) {
-			$player = Controller::getPlayerById($rank->getPlayerId());
+			foreach(Controller::getTournaments() as $tourn) {
 			?>
+				<br/>
+				<!-- PANEL HEADER -->
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="<?php echo "#".$tourn->getTournamentId()?>">
+						<span class="topicTitle"><?php echo $tourn->getTitle() ?> </span>
+						<span class="topicDate pull-right"> <?php echo $tourn->getType()?></span>
+					  </a>
+					</h4>
+				  </div>
+
+				  <!-- PANEL BODY -->	
+				  <div id="<?php echo $tourn->getTournamentId()?>" class="panel-collapse collapse <?php echo "in"?> ">
+
+					<div class="panel-body">
+				
+						<div class="row">
+					
+							<div class="col-md-2"> 
+								<img alt="Type" class="img-responsive" src="<?php Controller::getImageForTournamentType($tourn->getType())?>" />
+							</div>
+						
+						
+							<div class="col-md-offset-1 col-md-7"> 
+								<table class="table detailsTable">
+									<tbody>
+									<tr>
+										<td class="detailsTableHeading">Type:</td> <td><?php echo $tourn->getType()?></td>
+									</tr>
+									<tr>
+										<td class="detailsTableHeading">Surface :</td> <td><?php echo $tourn->getSurface()?></td>
+									</tr>
+									<tr>
+										<td class="detailsTableHeading">Place :</td><td><?php echo $tourn->getPlace()?></td>
+									</tr> 
+									<tr>
+										<td class="detailsTableHeading">Month :</td><td><?php echo $tourn->getMonth()?></td>
+									</tr>
+									<tr>
+										<td class="detailsTableHeading">Finance :</td> <td><?php echo $tourn->getFinance()?></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						
+					</div>
 			
-		      <tr>
-		      	<td> <?php echo $rank->getRankId() ?> </td>
-			<td> <?php echo $player->getFirstName() ?></td>
-			<td> <?php echo $player->getLastName() ?> </td>
-			<td> <?php echo $rank->getPoints() ?> </td>
-		      </tr>
-
-
+				  </div>
+				</div>
+	
 			<?php
 			}
 			?>
-		    </tbody>
-		  </table>
-	</div>
+		  
+	
+		  </div> 
+		</div>
 
-
-	<?php Controller::getRanking()?>
 
 	<?php include("footer.php"); ?>
 	</body>

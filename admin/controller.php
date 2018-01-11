@@ -5,7 +5,7 @@ include("includes/models/post.php");
 include("includes/models/topic.php");
 include("includes/models/user.php");
 include("includes/models/rank.php");
-include("includes/models/tournaments.php");
+include("includes/models/tournament.php");
 
 
 class Controller {
@@ -445,11 +445,11 @@ class Controller {
 			die("Database selection failed: " . mysqli_error($con));
 		}
 			
-		$sql = "SELECT * FROM TOURNAMENTS"; 
+		$sql = "SELECT * FROM TOURNAMENT"; 
 		
 		$tournaments = array();
 		$result = mysqli_query($con, $sql);
-		
+
 		while($row = mysqli_fetch_array($result)) {
 			$tournament = new Tournament($row['tournament_id'],
 					 $row['title'],
@@ -466,5 +466,25 @@ class Controller {
 		
 		return $tournaments;	
 	}
+
+	public static function getImageForTournamentType($type) {
+		switch ($type) {
+		    case "ATP 500":
+			echo "img/500.png";
+			break;
+		    case "ATP 1000":
+			echo "img/1000.png";
+			break;
+		    case "Grand Slam 2000":
+			echo "img/grandslam.png";
+			break;
+		    case "ATP Final":
+			echo "img/grandslam.png";
+			break;
+		}
+
+	}
+
+
 }
 ?>

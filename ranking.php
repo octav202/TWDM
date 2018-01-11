@@ -56,9 +56,6 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 		  </table>
 	</div>
 
-
-	<?php Controller::getRanking()?>
-
 	<?php include("footer.php"); ?>
 	</body>
  

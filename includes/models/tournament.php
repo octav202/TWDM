@@ -1,4 +1,5 @@
 <?php
+
 class Tournament {
 
 	private $tournamentId;
@@ -11,7 +12,7 @@ class Tournament {
 
 	public function __construct($tournamentId, $title, $type, $surface, $place, $month, $finance)  { 
 		$this->tournamentId = $tournamentId;
-		$this->title = $type;
+		$this->title = $title;
 		$this->type = $type;
 		$this->surface = $surface;
 		$this->place = $place;
@@ -56,12 +57,12 @@ class Tournament {
 	}
 
 	// Place
-	public function setSurface($surface) {
-  		$this->surface = $surface;
+	public function setPlace($place) {
+  		$this->place = $place;
 	}
 	
-	public function getSurface() {
-  		return $this->surface;
+	public function getPlace() {
+  		return $this->place;
 	}
 
 	// Month
