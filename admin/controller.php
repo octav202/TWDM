@@ -5,6 +5,7 @@ include("includes/models/post.php");
 include("includes/models/topic.php");
 include("includes/models/user.php");
 include("includes/models/rank.php");
+include("includes/models/tournaments.php");
 
 
 class Controller {
@@ -430,5 +431,40 @@ class Controller {
 		return $ranks;	
 	}
 	
+	//************** Tournaments **************
+	
+	public static function getTournaments() {
+	
+		$con = mysqli_connect("localhost","root","root");
+		if (!$con) {
+			die('Could not connect: ' . mysqli_error($con));
+		}
+			
+		$db_select = mysqli_select_db($con, "twdm");
+		if (!$db_select) {
+			die("Database selection failed: " . mysqli_error($con));
+		}
+			
+		$sql = "SELECT * FROM TOURNAMENTS"; 
+		
+		$tournaments = array();
+		$result = mysqli_query($con, $sql);
+		
+		while($row = mysqli_fetch_array($result)) {
+			$tournament = new Tournament($row['tournament_id'],
+					 $row['title'],
+					 $row['type'],
+					 $row['surface'],
+					 $row['place'],
+					 $row['month'],
+					 $row['finance']);
+			
+			$tournaments[] = $tournament;
+		}
+		
+		mysqli_close($con);
+		
+		return $tournaments;	
+	}
 }
 ?>

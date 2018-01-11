@@ -216,3 +216,8 @@ footer {
 	margin-left:30px;
 	font-size:22px;
 }
+
+/* ___________ RANKING __________*/
+.rankingTable th,td{
+	 font-size:18px;
+}

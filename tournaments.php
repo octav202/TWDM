@@ -10,7 +10,7 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>ATP Ranking</title>
+	<title>Tournaments</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<script src="js/jquery-3.2.1.min" type="text/javascript"></script>
@@ -24,7 +24,7 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 	
 	<div class="container">
 		  <br>
-		  <h1>ATP Ranking</h1> 
+		  <h1>Tournaments</h1> 
 		  <br>       
 		  <table class="table table-striped rankingTable">
 		    <thead>
