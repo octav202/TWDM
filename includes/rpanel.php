@@ -1,7 +1,7 @@
 
 
 		
-<div class="panel panel-info rightPanel">
+<div class="panel panel-info rankingPanel">
 			
 	<div class="panel-heading">
 		<h4>ATP Ranking</h4>

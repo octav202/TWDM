@@ -19,6 +19,8 @@ session_start();
 	<?php include("includes/header.php"); ?>
 	<?php include("includes/menu.php"); ?>
 	
+	<?php include("includes/rpanel.php"); ?>
+        <?php include("includes/recentposts.php"); ?>
 	
 	<div class="container">
       <div class="row">

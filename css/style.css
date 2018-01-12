@@ -153,7 +153,6 @@ footer {
 
 .postDate {
 	font-size: 14px; 
-
 }
 
 .postList{
@@ -227,19 +226,47 @@ footer {
 	 margin:15px;
 }
 
-/* ___________ RIGHT PANEL __________*/
-.rightPanel{
-	 font-size:17px;
+/* ___________ RANKINGPANEL __________*/
+.rankingPanel {
+	 font-size:16px;
 	 position:fixed;
 	 right : 30px;
 	 top : 180px;
 }
 
-/* ___________ LEFT PANEL __________*/
-.leftPanel{
-	 margin:15px;
+.rankList li {
+	margin-top:5px;
+	margin-right:5px;
 }
 
-.rankList li {
-margin:5px;
+/* ___________ RECENT POSTS PANEL __________*/
+.recentPostsPanel {
+	 position:fixed;
+	 left : 30px;
+	 top : 180px;
+	 max-width:300px;
 }
+
+.recentPostList {
+	margin-left:-20px;
+	max-width:300px;
+
+}
+
+.recentPostList li{
+	margin-left:-20px;
+ 	font-size:15px;
+        max-width:300px;
+}
+
+.recentPostDesc {
+	font-size: 16px; 
+	overflow:hidden;
+}
+
+.recentPostDate {
+	font-size: 13px; 
+}
+
+
+

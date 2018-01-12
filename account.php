@@ -64,6 +64,8 @@ if(isset($_POST['submit'])){
 	
 	<?php include("includes/header.php"); ?>
 	<?php include("includes/menu.php"); ?>
+	<?php include("includes/rpanel.php"); ?>
+        <?php include("includes/recentposts.php"); ?>
 	
 		<div class="row" id = "accountForm">
 			<div class="col-md-4 col-md-offset-4">

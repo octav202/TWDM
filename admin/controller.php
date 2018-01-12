@@ -225,6 +225,39 @@ class Controller {
 	}
 	
 	//************** POSTS **************
+
+	public static function getRecentPosts() {
+	
+		$con = mysqli_connect("localhost","root","root");
+		if (!$con) {
+			die('Could not connect: ' . mysqli_error($con));
+		}
+			
+		$db_select = mysqli_select_db($con, "twdm");
+		if (!$db_select) {
+			die("Database selection failed: " . mysqli_error($con));
+		}
+			
+		$sql = "SELECT * FROM post order by post_date desc LIMIT 6"; 
+		
+		$posts = array();
+		$result = mysqli_query($con, $sql);
+		
+		while($row = mysqli_fetch_array($result)) {
+
+			$post = new Post($row['post_id'],
+					 $row['post_description'], 
+					 $row['post_date'],
+					 $row['user_id'],
+					 $row['topic_id']);
+
+			$posts[] = $post;
+		}
+		
+		mysqli_close($con);
+		
+		return $posts;	
+	}
 	
 	public static function getPostsForTopic($topic_id) {
 	

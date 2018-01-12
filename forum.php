@@ -44,6 +44,7 @@ if (isset($_GET['id'])) {
 	<?php include("includes/menu.php"); ?>
 
 	<?php include("includes/rpanel.php"); ?>
+        <?php include("includes/recentposts.php"); ?>
 
 </div>
 	
