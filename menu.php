@@ -17,3 +17,4 @@
 			<input type="text" id="search" class=" input-lg pull-right" placeholder="Search.." size = "30" onkeyup="getPlayers(this.value)">
 		</div>
 </nav>
+

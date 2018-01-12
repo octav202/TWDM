@@ -42,6 +42,10 @@ if (isset($_GET['id'])) {
  <body>
 	<?php include("includes/header.php"); ?>
 	<?php include("includes/menu.php"); ?>
+
+	<?php include("includes/rpanel.php"); ?>
+
+</div>
 	
 <div class="container forum">
 
