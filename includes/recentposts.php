@@ -13,9 +13,10 @@
 			<?php
 				foreach(Controller::getRecentPosts() as $post) {
 				$post_user = Controller::getUserForId($post->getUserId());
+				$link = "forum.php?id=".$post->getTopicId();
 			?>
 			<li class="list-group-item">
-				<div class="recentPostDesc"><?php echo $post->getDescription()?> </div>
+				<a href="<?php echo $link ?>"><div class="recentPostDesc"><?php echo $post->getDescription()?> </div></a>
 				<div class="recentPostDate"> <?php echo $post_user->getFirstName().' '.$post_user->getLastName().", ".$post->getDate()?></div>
 					
 			</li>
