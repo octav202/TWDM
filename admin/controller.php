@@ -238,7 +238,7 @@ class Controller {
 			die("Database selection failed: " . mysqli_error($con));
 		}
 			
-		$sql = "SELECT * FROM post order by post_date desc LIMIT 6"; 
+		$sql = "SELECT * FROM post order by post_date desc LIMIT 4"; 
 		
 		$posts = array();
 		$result = mysqli_query($con, $sql);

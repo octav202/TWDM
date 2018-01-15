@@ -40,143 +40,140 @@ if (isset($_GET['id'])) {
  </head>
  
  <body>
-	<?php include("includes/header.php"); ?>
-	<?php include("includes/menu.php"); ?>
+ 
+ <?php include("includes/header.php"); ?>
+ <?php include("includes/menu.php"); ?>
 
-	<?php include("includes/rpanel.php"); ?>
-        <?php include("includes/recentposts.php"); ?>
-
-</div>
 	
-<div class="container forum">
+ <div class="container forum">
+   <div class="col-md-9">
+	  
+	  <!-- TOPICS -->
+	  <div class="panel-group topicList" id="accordion">
+		<?php
+		foreach(Controller::getTopics() as $topic) {
+			$topic_user = Controller::getUserForId($topic->getUserId());
+		?>
+			<br/>
+			<!-- PANEL HEADER -->
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+				<h4 class="panel-title">
+				  <a data-toggle="collapse" data-parent="#accordion" href="<?php echo "#".$topic->getId()?>">
+					<span class="topicTitle"><?php echo $topic->getTitle() ?> </span>
+					<span class="topicDate pull-right"> <?php echo "  Created by ".$topic_user->getFirstName().' '.$topic_user->getLastName().", ".$topic->getDate();?></span>
+				  </a>
+				</h4>
+			  </div>
 
-	<div class="row">
-		<div class="col-md-3" id = "topicHeader">
-			<h2>Topics</h2>
-		</div>
-												
-	</div>
-	
-	<!-- ADD TOPIC -->
-	<div class="row addTopicForm">
-				<div class="col-md-8">
-					<form action="forum.php" method = "post">
-						<div class="row">
-							<div class="col-md-8">
-								<div class="form-group">
-									<input type="text" name="title" id="title" class="form-control input-lg" placeholder="Title" tabindex="1"/>
-								</div>
-							</div>
-							
-							<div class="col-md-2">
-								<div class="form-group">
-									<input type="submit" name="submit" value="Add" class="btn btn-primary btn-success btn-lg" tabindex="2"/>
-								</div>
-							</div>
-						</div>
-
-					</form>
-				</div>
-			</div>
-  
-  <hr/>
-  
-  <!-- TOPICS -->
-  <div class="panel-group topicList" id="accordion">
-	<?php
-	foreach(Controller::getTopics() as $topic) {
-		$topic_user = Controller::getUserForId($topic->getUserId());
-	?>
-		<br/>
-		<!-- PANEL HEADER -->
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-			<h4 class="panel-title">
-			  <a data-toggle="collapse" data-parent="#accordion" href="<?php echo "#".$topic->getId()?>">
-				<span class="topicTitle"><?php echo $topic->getTitle() ?> </span>
-				<span class="topicDate pull-right"> <?php echo "  Created by ".$topic_user->getFirstName().' '.$topic_user->getLastName().", ".$topic->getDate();?></span>
-			  </a>
-			</h4>
-		  </div>
-
-		  <!-- PANEL BODY -->	
-		  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php if($topic->getId() == $active_topic) echo "in";?> ">
-		  <!-- POSTS -->
-		  
-			<div class="panel-body">
-			<?php
-			$posts = Controller::getPostsForTopic($topic->getId());
-			if($posts == null || sizeof($posts) == 0){
-			?>
-				<h4> No posts.. </h4>
-			<?php 
-			} else {
-			?>
+			  <!-- PANEL BODY -->	
+			  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php if($topic->getId() == $active_topic) echo "in";?> ">
+			  <!-- POSTS -->
+			  
+				<div class="panel-body">
+				<?php
+				$posts = Controller::getPostsForTopic($topic->getId());
+				if($posts == null || sizeof($posts) == 0){
+				?>
+					<h4> No posts.. </h4>
+				<?php 
+				} else {
+				?>
 			
-				<ul class="list-group postList">
+					<ul class="list-group postList">
 					
-					<?php
-					foreach($posts as $post) {
-						$post_user = Controller::getUserForId($post->getUserId());
-					?>
-						<li class="list-group-item">
-							<span class="postTitle"><?php echo $post->getDescription()?> </span>
-							<span class="postDate pull-right"> <?php echo $post_user->getFirstName().' '.$post_user->getLastName().", ".$post->getDate()?></span>
+						<?php
+						foreach($posts as $post) {
+							$post_user = Controller::getUserForId($post->getUserId());
+						?>
+							<li class="list-group-item">
+								<span class="postTitle"><?php echo $post->getDescription()?> </span>
+								<span class="postDate pull-right"> <?php echo $post_user->getFirstName().' '.$post_user->getLastName().", ".$post->getDate()?></span>
 					
-						</li>
+							</li>
 						
-					<?php }?>
-				</ul>
+						<?php }?>
+					</ul>
 				
 				
-			<?php }
-			?>
+				<?php }
+				?>
 				
 				
-			<!-- ADD POST -->
-			<div class="row addPostForm">
-				<div class="col-md-12">
-					<form action="forum.php" method = "post">
-						<div class="row">
-							<div class="col-md-11">
-								<div class="form-group">
-									<input type="text" name="post_description" id="post_description" class="form-control input-lg" placeholder="Your post.." tabindex="1"/>
+				<!-- ADD POST -->
+				<div class="row addPostForm">
+					<div class="col-md-12">
+						<form action="forum.php" method = "post">
+							<div class="row">
+								<div class="col-md-11">
+									<div class="form-group">
+										<input type="text" name="post_description" id="post_description" class="form-control input-lg" placeholder="Your post.." tabindex="1"/>
+									</div>
 								</div>
-							</div>
 							
-							<div class="col-md-1">
-								<div class="form-group pull-right">
-									<input type="submit" name="submit_post" value="Add" class="btn btn-primary btn-success btn-lg" tabindex="2"/>
+								<div class="col-md-1">
+									<div class="form-group pull-right">
+										<input type="submit" name="submit_post" value="Add" class="btn btn-primary btn-success btn-lg" tabindex="2"/>
+									</div>
 								</div>
-							</div>
 							
-							<div class="col-md-0">
-								<div class="form-group">
-									<input type="hidden" name="topic_id" value ="<?php echo $topic->getId()?>"/>
+								<div class="col-md-0">
+									<div class="form-group">
+										<input type="hidden" name="topic_id" value ="<?php echo $topic->getId()?>"/>
+									</div>
 								</div>
-							</div>
 							
-						</div>
+							</div>
 
-					</form>
+						</form>
+					</div>
 				</div>
-			</div>
 				
+				</div>
+			
+			
+			  </div>
 			</div>
-			
-			
-		  </div>
-		</div>
 	
-	<?php
-	}
-	?>
+		<?php
+		}
+		?>
+	  
+	
+  	  	</div>
   
-	
-  </div> 
-</div>
+	  	  <!-- ADD TOPIC -->
+		<div class="row addTopicForm ">
+					<div class="col-md-offset-5 col-md-8">
+						<form action="forum.php" method = "post">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<input type="text" name="title" id="title" class="form-control input-lg" placeholder="Title" tabindex="1"/>
+									</div>
+								</div>
+							
+								<div class="col-md-2">
+									<div class="form-group">
+										<input type="submit" name="submit" value="Add" class="btn btn-primary btn-success btn-lg" tabindex="2"/>
+									</div>
+								</div>
+							</div>
 
-	
+						</form>
+					</div>
+		</div>
+  
+  
+ 	  </div> 
+ 	
+ 	<div class="col-md-3">
+	          	<?php include("includes/rpanel.php"); ?>
+	          	<?php include("includes/recentposts.php"); ?>
+	</div>
+ 	
+     </div>
+
 	<?php include("includes/footer.php"); ?>
 		
  </body>

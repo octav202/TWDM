@@ -21,41 +21,47 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 	
 	<?php include("includes/header.php"); ?>
 	<?php include("includes/menu.php"); ?>
-	<?php include("includes/rpanel.php"); ?>
-        <?php include("includes/recentposts.php"); ?>
 	
 	<div class="container">
-		  <br>
-		  <h1>ATP Ranking</h1> 
-		  <br>       
-		  <table class="table table-striped rankingTable">
-		    <thead>
-		      <tr>
-			<th>Position</th></h4>
-			<th>Firstname</th>
-			<th>Lastname</th>
-			<th>Points</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-			<?php
-			foreach(Controller::getRanking() as $rank) {
-			$player = Controller::getPlayerById($rank->getPlayerId());
-			?>
+		<div class="row">
+	          	
+	          	<div class="col-md-9 rankingContainer">
+    
+				  <table class="table table-striped rankingTable">
+				    <thead>
+				      <tr>
+					<th>Position</th></h4>
+					<th>Firstname</th>
+					<th>Lastname</th>
+					<th>Points</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+					<?php
+					foreach(Controller::getRanking() as $rank) {
+					$player = Controller::getPlayerById($rank->getPlayerId());
+					?>
 			
-		      <tr>
-		      	<td> <?php echo $rank->getRankId() ?> </td>
-			<td> <?php echo $player->getFirstName() ?></td>
-			<td> <?php echo $player->getLastName() ?> </td>
-			<td> <?php echo $rank->getPoints() ?> </td>
-		      </tr>
+				      <tr>
+				      	<td> <?php echo $rank->getRankId() ?> </td>
+					<td> <?php echo $player->getFirstName() ?></td>
+					<td> <?php echo $player->getLastName() ?> </td>
+					<td> <?php echo $rank->getPoints() ?> </td>
+				      </tr>
 
 
-			<?php
-			}
-			?>
-		    </tbody>
-		  </table>
+					<?php
+					}
+					?>
+				    </tbody>
+				  </table>
+			 </div>
+			  
+			<div class="col-md-3">
+	          		<?php include("includes/rpanel.php"); ?>
+	          		<?php include("includes/recentposts.php"); ?>
+	       		</div>
+		</div>
 	</div>
 
 	<?php include("includes/footer.php"); ?>

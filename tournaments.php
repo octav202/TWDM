@@ -21,14 +21,14 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 	
 	<?php include("includes/header.php"); ?>
 	<?php include("includes/menu.php"); ?>
-	<?php include("includes/rpanel.php"); ?>
-        <?php include("includes/recentposts.php"); ?>
+	
 
 	<div class="container forum">
-
+	
+	    <div class="row">
 
 		  <!-- TOPICS -->
-		  <div class="panel-group topicList" id="accordion">
+		  <div class="panel-group topicList col-md-9" id="accordion">
 			<?php
 			foreach(Controller::getTournaments() as $tourn) {
 			?>
@@ -80,17 +80,20 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 						
 					</div>
 			
-				  </div>
+				    </div>
 				</div>
 	
 			<?php
 			}
 			?>
-		  
-	
-		  </div> 
-		</div>
+		</div>		  
 
+		<div class="col-md-3">
+	          	<?php include("includes/rpanel.php"); ?>
+	          	<?php include("includes/recentposts.php"); ?>
+	        </div>
+
+	</div>
 
 	<?php include("includes/footer.php"); ?>
 	</body>
