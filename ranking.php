@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php 
+<?php
 include("admin/controller.php");
 session_start();
 $user = Controller::getUserForId(Controller::getLoggedUser());
@@ -15,18 +15,17 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
- 
+
  </head>
 	<body>
-	
+
 	<?php include("includes/header.php"); ?>
-	<?php include("includes/menu.php"); ?>
-	
+
 	<div class="container">
 		<div class="row">
-	          	
+
 	          	<div class="col-md-9 rankingContainer">
-    
+
 				  <table class="table table-striped rankingTable">
 				    <thead>
 				      <tr>
@@ -41,7 +40,7 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 					foreach(Controller::getRanking() as $rank) {
 					$player = Controller::getPlayerById($rank->getPlayerId());
 					?>
-			
+
 				      <tr>
 				      	<td> <?php echo $rank->getRankId() ?> </td>
 					<td> <?php echo $player->getFirstName() ?></td>
@@ -56,15 +55,14 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 				    </tbody>
 				  </table>
 			 </div>
-			  
+
 			<div class="col-md-3">
-	          		<?php include("includes/rpanel.php"); ?>
-	          		<?php include("includes/recentposts.php"); ?>
+	          		<?php include("includes/sidePanel.php"); ?>
 	       		</div>
 		</div>
 	</div>
 
 	<?php include("includes/footer.php"); ?>
 	</body>
- 
-</html> 
+
+</html>

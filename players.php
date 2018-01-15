@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php 
+<?php
 include("admin/controller.php");
 session_start();
 ?>
@@ -14,7 +14,7 @@ session_start();
 		<title>Players</title>
 
 		<script type="text/javascript">
-	  
+
 		function getPlayers(keyword) {
 
 			if (window.XMLHttpRequest) {
@@ -31,56 +31,51 @@ session_start();
 					console.log( xmlhttp.responseText);
 				}
 			 }
-			 
+
 			 xmlhttp.open("GET", "filter_players.php?key="+keyword, true);
 			 xmlhttp.send();
 		}
-	</script> 
-	 
+	</script>
+
  </head>
- 
+
  <body>
 	<?php include("includes/header.php"); ?>
-	<?php include("includes/menu.php"); ?>
 
 	<div class="container">
-	
+
 		<div class="col-md-9">
-			<div class="row contentPadding" id= "players_row">
+			<div class="row  playersGrid" id= "players_row">
 
 				<?php
 				foreach(Controller::getPlayers() as $player) {
 				?>
-			
+
 				<a href="details.php?id=<?php echo $player->getId()?>">
 					<div class="col-md-3">
-						<div class="gridItem">
-							<div class="col-md-12 ">
-							  <img alt="Player" src="<?php echo $player->getImage()?>" class="img-responsive playerImage"/>
-							</div>
-						
-							<div class="col-md-12 playerGridInfo">
-								<h3><?php echo $player->getFirstName(). " " . $player->getLastName(); ?></h3>
-								<p>Country : <?php echo $player->getCountry() ?></p>
-								<p>Age : <?php echo $player->getAge() ?></p>
-								<p>Ranking : <?php echo $player->getRanking() ?></p>
-							</div>
-						</div>
+  						<div class="gridItem">
+    						  <img alt="Player" src="<?php echo $player->getImage()?>" class="img-responsive"/>
+
+    							<div class="playerGridInfo">
+                        <h4><?php echo $player->getFirstName(). " " . $player->getLastName(); ?></h4>
+                        <p>Country : <?php echo $player->getCountry() ?></p>
+                        <p>Age : <?php echo $player->getAge() ?></p>
+                        <p>Ranking : <?php echo $player->getRanking() ?></p>
+    							</div>
+  						</div>
 					</div>
 				</a>
-			
 				<?php } ?>
 			 </div>
 		</div>
-		
+
 		<div class="col-md-3">
-	          	<?php include("includes/rpanel.php"); ?>
-	          	<?php include("includes/recentposts.php"); ?>
+	       <?php include("includes/sidePanel.php"); ?>
 		</div>
 	</div>
 
 	<?php include("includes/footer.php"); ?>
-	
-	
+
+
  </body>
-</html> 
+</html>

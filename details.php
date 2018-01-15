@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php 
+<?php
 include("admin/controller.php");
 session_start();
 ?>
@@ -14,45 +14,44 @@ session_start();
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
  </head>
- 
+
  <body>
 	<?php include("includes/header.php"); ?>
-	<?php include("includes/menu.php"); ?>
-	
+
 	<?php include("includes/rpanel.php"); ?>
         <?php include("includes/recentposts.php"); ?>
-	
+
 	<div class="container">
       <div class="row">
 
         <div class=" col-md-10 col-md-offset-1" >
 
-		<?php 
-		
+		<?php
+
 		if(isset($_GET['id'])){
 			$player = Controller::getPlayerById($_GET['id']);
 		} else {
 			exit();
 		}
-			
+
 		?>
-		
+
 		<div class="row">
-		
+
 			<div class="panel panel-info">
-			
+
 				<div class="panel-heading">
 					<h4 id = "player_name"><?php echo $player->getFirstName()." ".$player->getLastName() ?></h4>
 				</div>
 				<div class="panel-body">
 					<div class="row">
-					
-						<div class="col-md-3"> 
+
+						<div class="col-md-3">
 							<img alt="User Pic" class="img-responsive" src="<?php echo $player->getImage()?>" />
 						</div>
-						
-						
-						<div class="col-md-offset-1 col-md-7"> 
+
+
+						<div class="col-md-offset-1 col-md-7">
 							<table class="table detailsTable">
 								<tbody>
 								<tr>
@@ -63,7 +62,7 @@ session_start();
 								</tr>
 								<tr>
 									<td class="detailsTableHeading">Birthplace</td><td><?php echo $player->getBirthplace()?></td>
-								</tr> 
+								</tr>
 								<tr>
 									<td class="detailsTableHeading">Age</td><td><?php echo $player->getAge()?></td>
 								</tr>
@@ -73,17 +72,17 @@ session_start();
 								<tr>
 									<td class="detailsTableHeading">Weight</td><td><?php echo $player->getWeight()?></td>
 								</tr>
-								<tr>
-									<td class="detailsTableHeading">Height</td> <td><?php echo $player->getHeight()?></td> 
+								<tr>	<?php include("includes/menu.php"); ?>
+									<td class="detailsTableHeading">Height</td> <td><?php echo $player->getHeight()?></td>
 								</tr>
 								<tr>
-									<td class="detailsTableHeading">About</td> <td><?php echo $player->getAbout()?></td> 
-								</tr> 
+									<td class="detailsTableHeading">About</td> <td><?php echo $player->getAbout()?></td>
+								</tr>
 								<tr>
-									<td class="detailsTableHeading">Topics</td> 
+									<td class="detailsTableHeading">Topics</td>
 									<td>
 										<ul>
-										
+
 										<?php
 											$topics = Controller::getTopicsForPlayer($player->getFirstName(),$player->getLastName());
 											foreach($topics as $topic) {
@@ -91,25 +90,25 @@ session_start();
 												echo "<li><a href=\"".$link."\">".$topic->getTitle()."</a></li>";
 											}
 										?>
-									
+
 										</ul>
-									</td> 
-								</tr> 
+									</td>
+								</tr>
 								</tbody>
 							</table>
 						</div>
 				</div>
             </div>
-			
+
 			</div>
-            
+
           </div>
         </div>
       </div>
     </div>
-	
-	<?php include("includes/footer.php"); ?>
-		
+
+	<?php include("includes/sidePanel.php"); ?>
+
  </body>
- 
-</html> 
+
+</html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php 
+<?php
 include("admin/controller.php");
 session_start();
 $user = Controller::getUserForId(Controller::getLoggedUser());
@@ -15,16 +15,14 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
- 
+
  </head>
 	<body>
-	
+
 	<?php include("includes/header.php"); ?>
-	<?php include("includes/menu.php"); ?>
-	
 
 	<div class="container forum">
-	
+
 	    <div class="row">
 
 		  <!-- TOPICS -->
@@ -43,19 +41,19 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 					</h4>
 				  </div>
 
-				  <!-- PANEL BODY -->	
+				  <!-- PANEL BODY -->
 				  <div id="<?php echo $tourn->getTournamentId()?>" class="panel-collapse collapse <?php echo "in"?> ">
 
 					<div class="panel-body">
-				
+
 						<div class="row">
-					
-							<div class="col-md-2 tournImage"> 
+
+							<div class="col-md-2 tournImage">
 								<img alt="Type" class="img-responsive" src="<?php Controller::getImageForTournamentType($tourn->getType())?>" />
 							</div>
-						
-						
-							<div class="col-md-offset-1 col-md-7"> 
+
+
+							<div class="col-md-offset-1 col-md-7">
 								<table class="table detailsTable">
 									<tbody>
 									<tr>
@@ -66,7 +64,7 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 									</tr>
 									<tr>
 										<td class="detailsTableHeading">Place :</td><td><?php echo $tourn->getPlace()?></td>
-									</tr> 
+									</tr>
 									<tr>
 										<td class="detailsTableHeading">Month :</td><td><?php echo $tourn->getMonth()?></td>
 									</tr>
@@ -77,25 +75,24 @@ $user = Controller::getUserForId(Controller::getLoggedUser());
 								</table>
 							</div>
 						</div>
-						
+
 					</div>
-			
+
 				    </div>
 				</div>
-	
+
 			<?php
 			}
 			?>
-		</div>		  
+		</div>
 
 		<div class="col-md-3">
-	          	<?php include("includes/rpanel.php"); ?>
-	          	<?php include("includes/recentposts.php"); ?>
+	          	<?php include("includes/sidePanel.php"); ?>
 	        </div>
 
 	</div>
 
 	<?php include("includes/footer.php"); ?>
 	</body>
- 
-</html> 
+
+</html>

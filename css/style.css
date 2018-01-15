@@ -1,26 +1,29 @@
 
 /* __________ HEADER _________ */
 
+header {
+}
+
 .header {
 	margin:0px;
 	padding:0px;
 }
 
 #headerLogo {
-	font-size: 23px; 
+	font-size: 23px;
 	margin-left:10px;
 	font-weight: bold;
 	color:#ff670f;
 }
 
 #headerLogin {
-	font-size: 18px; 
+	font-size: 18px;
 	margin-right:10px;
 	color:#ff670f;
 }
 
 #headerLogout {
-	font-size: 18px; 
+	font-size: 18px;
 	margin-right:10px;
 	color:#ff670f;
 }
@@ -40,23 +43,23 @@
 }
 
 .menuBar li a{
-	color:#a0a3a4; 
+	color:#a0a3a4;
 	background-color:#0c1a1e;
 }
 
 .menuBar a:hover{
 	background-color:#0c1a1e;
-	color:#ff670f;  
+	color:#ff670f;
 }
 
 .menuBar li a {
-	font-size: 18px; 
+	font-size: 18px;
 	font-weight:700;
 	color:#d9d6d6;
 }
 
 .menuBar li a :hover {
-	font-size: 18px; 
+	font-size: 18px;
 }
 
 /* __________ FOOTER _________ */
@@ -65,43 +68,31 @@
 footer {
 	background-color:#0c1a1e;
 	min-height:80px;
-	max-height:100px;
+	max-height:80px;
 	font-family:'Open Sans', sans-serif;
 	bottom:0px;width:100%;
-	position:fixed;
+	margin-top: 50px;
 }
 
-.footerleft { 
-	margin-top:10px;
-	padding:0 36px;
-}
- 
-.logofooter { 
-	margin-bottom:10px; 
-	font-size:25px; 
-	color:#fff; 
-	font-weight:700;
-}
-
-.footer-ul { 
-	list-style-type:none; 
-	 padding-left:0px; 
+.footer-ul {
+	list-style-type:none;
+	 padding-left:0px;
 	 margin-left:2px;
  }
- 
+
 .footer-ul li {
-	color:#a0a3a4; 
+	color:#a0a3a4;
 	font-size:12px;
 }
 
 .footer-ul li a{
-	color:#a0a3a4; 
+	color:#a0a3a4;
 	font-size:12px;
 }
 
 
 .footer-ul li a:hover {
-	color:#ff670f; 
+	color:#ff670f;
 }
  .heading {
 	 font-size:17px;
@@ -111,20 +102,10 @@ footer {
 }
 
 
-
-.registerForm{
-	margin:0px;
-}
-/* __________ CONTENT _________ */
-
-.contentPadding{
-	padding-bottom:150px;
-}
-
 /* __________ FORUM _________ */
 
 
-#addTopicBtn{	
+#addTopicBtn{
 	margin-left:0px;
 	margin-top:0px;
 }
@@ -135,23 +116,23 @@ footer {
 }
 
 .topicTitle {
-	font-size: 20px; 
+	font-size: 20px;
 	font-weight:bold;
 }
 
 .topicDate {
-	font-size: 14px; 
-	color:#ff670f; 
+	font-size: 14px;
+	color:#ff670f;
 }
 
 
 .postTitle {
-	font-size: 18px; 
+	font-size: 18px;
 	font-weight:bold;
 }
 
 .postDate {
-	font-size: 14px; 
+	font-size: 14px;
 }
 
 .postList{
@@ -172,7 +153,6 @@ footer {
 
 #accountForm{
 	margin-top:20px;
-	margin-bottom:100px;
 }
 
 /* ___________ CONTACT US __________*/
@@ -183,14 +163,17 @@ footer {
 
 /* ___________ PLAYERS __________*/
 
+.playersGrid {
+	margin-right: 50px;
+}
+
 .playerGridInfo p  {
 	padding:0px;
 	margin:0px;
 }
 
 .gridItem{
-	background-color:#F2F2F2;
-	margin:32px;
+  padding:12px;
 }
 
 
@@ -217,7 +200,7 @@ footer {
 
 /* ___________ RANKING __________*/
 .rankingContainer {
-	
+
 }
 
 .rankingTable th,td{
@@ -229,9 +212,16 @@ footer {
 	 margin:15px;
 }
 
+/* ___________ SIDEPANEL - RANKING + RECENT POSTS __________*/
+.sidePanel {
+}
+
 /* ___________ RANKINGPANEL __________*/
 .rankingPanel {
 	 font-size:14px;
+	 padding:10px;
+	 border-style: ridge;
+	 margin:15px;
 }
 
 .rankList li {
@@ -241,6 +231,9 @@ footer {
 
 /* ___________ RECENT POSTS PANEL __________*/
 .recentPostsPanel {
+	padding:10px;
+	border-style: ridge;
+	margin:15px;
 }
 
 .recentPostList {
@@ -252,13 +245,15 @@ footer {
 }
 
 .recentPostDesc {
-	font-size: 14px; 
+	font-size: 14px;
 	overflow:hidden;
 }
 
 .recentPostDate {
-	font-size: 13px; 
+	font-size: 13px;
 }
 
-
-
+.panelHeader {
+	font-size: 17px;
+	font-weight: bold;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
-include("admin/controller.php"); 
+include("admin/controller.php");
 session_start();
 ?>
 
@@ -22,10 +22,10 @@ if (isset($_POST['submit_post']) && $curr_user !=0 ){
 }
 
 // Get Active topic
-$active_topic = 0;	
+$active_topic = 0;
 if (isset($_GET['id'])) {
 	$active_topic = $_GET['id'];
-} 
+}
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,18 +36,16 @@ if (isset($_GET['id'])) {
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
  	<title>Forum</title>
- 
- </head>
- 
- <body>
- 
- <?php include("includes/header.php"); ?>
- <?php include("includes/menu.php"); ?>
 
-	
+ </head>
+
+ <body>
+
+ <?php include("includes/header.php"); ?>
+
  <div class="container forum">
    <div class="col-md-9">
-	  
+
 	  <!-- TOPICS -->
 	  <div class="panel-group topicList" id="accordion">
 		<?php
@@ -66,22 +64,22 @@ if (isset($_GET['id'])) {
 				</h4>
 			  </div>
 
-			  <!-- PANEL BODY -->	
+			  <!-- PANEL BODY -->
 			  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php if($topic->getId() == $active_topic) echo "in";?> ">
 			  <!-- POSTS -->
-			  
+
 				<div class="panel-body">
 				<?php
 				$posts = Controller::getPostsForTopic($topic->getId());
 				if($posts == null || sizeof($posts) == 0){
 				?>
 					<h4> No posts.. </h4>
-				<?php 
+				<?php
 				} else {
 				?>
-			
+
 					<ul class="list-group postList">
-					
+
 						<?php
 						foreach($posts as $post) {
 							$post_user = Controller::getUserForId($post->getUserId());
@@ -89,17 +87,17 @@ if (isset($_GET['id'])) {
 							<li class="list-group-item">
 								<span class="postTitle"><?php echo $post->getDescription()?> </span>
 								<span class="postDate pull-right"> <?php echo $post_user->getFirstName().' '.$post_user->getLastName().", ".$post->getDate()?></span>
-					
+
 							</li>
-						
+
 						<?php }?>
 					</ul>
-				
-				
+
+
 				<?php }
 				?>
-				
-				
+
+
 				<!-- ADD POST -->
 				<div class="row addPostForm">
 					<div class="col-md-12">
@@ -110,38 +108,38 @@ if (isset($_GET['id'])) {
 										<input type="text" name="post_description" id="post_description" class="form-control input-lg" placeholder="Your post.." tabindex="1"/>
 									</div>
 								</div>
-							
+
 								<div class="col-md-1">
 									<div class="form-group pull-right">
 										<input type="submit" name="submit_post" value="Add" class="btn btn-primary btn-success btn-lg" tabindex="2"/>
 									</div>
 								</div>
-							
+
 								<div class="col-md-0">
 									<div class="form-group">
 										<input type="hidden" name="topic_id" value ="<?php echo $topic->getId()?>"/>
 									</div>
 								</div>
-							
+
 							</div>
 
 						</form>
 					</div>
 				</div>
-				
+
 				</div>
-			
-			
+
+
 			  </div>
 			</div>
-	
+
 		<?php
 		}
 		?>
-	  
-	
+
+
   	  	</div>
-  
+
 	  	  <!-- ADD TOPIC -->
 		<div class="row addTopicForm ">
 					<div class="col-md-offset-5 col-md-8">
@@ -152,7 +150,7 @@ if (isset($_GET['id'])) {
 										<input type="text" name="title" id="title" class="form-control input-lg" placeholder="Title" tabindex="1"/>
 									</div>
 								</div>
-							
+
 								<div class="col-md-2">
 									<div class="form-group">
 										<input type="submit" name="submit" value="Add" class="btn btn-primary btn-success btn-lg" tabindex="2"/>
@@ -163,19 +161,19 @@ if (isset($_GET['id'])) {
 						</form>
 					</div>
 		</div>
-  
-  
- 	  </div> 
- 	
+
+
+ 	  </div>
+
  	<div class="col-md-3">
 	          	<?php include("includes/rpanel.php"); ?>
 	          	<?php include("includes/recentposts.php"); ?>
 	</div>
- 	
+
      </div>
 
-	<?php include("includes/footer.php"); ?>
-		
+	<?php include("includes/sidePanel.php"); ?>
+
  </body>
- 
-</html> 
+
+</html>
