@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
 	<title>My Account</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<script src="js/jquery-3.2.1.min" type="text/javascript"></script>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
  
 	<script type="text/javascript">

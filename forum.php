@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<script src="js/jquery-3.2.1.min" type="text/javascript"></script>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
  	<title>Forum</title>
  
@@ -100,7 +100,7 @@ if (isset($_GET['id'])) {
 		  </div>
 
 		  <!-- PANEL BODY -->	
-		  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php /*if($topic->getId() == $active_topic)*/ echo "in";?> ">
+		  <div id="<?php echo $topic->getId()?>" class="panel-collapse collapse <?php if($topic->getId() == $active_topic) echo "in";?> ">
 		  <!-- POSTS -->
 		  
 			<div class="panel-body">

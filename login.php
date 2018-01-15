@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<script src="js/jquery-3.2.1.min" type="text/javascript"></script>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
  
 	<script type="text/javascript">
