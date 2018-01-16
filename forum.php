@@ -166,13 +166,12 @@ if (isset($_GET['id'])) {
  	  </div>
 
  	<div class="col-md-3">
-	          	<?php include("includes/rpanel.php"); ?>
-	          	<?php include("includes/recentposts.php"); ?>
+	          	<?php include("includes/sidePanel.php"); ?>
 	</div>
 
      </div>
 
-	<?php include("includes/sidePanel.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
  </body>
 
