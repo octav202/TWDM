@@ -1,6 +1,13 @@
-/* __________ HEADER _________ */
+body {
+	padding-top:150px;
+}
 
+/* __________ HEADER _________ */
 header {
+	position:fixed;
+	width:100%;
+	top:0;
+	z-index: 500;
 }
 
 .header {
