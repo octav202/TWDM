@@ -1,5 +1,11 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
 body {
 	padding-top:150px;
+	margin: 0 0 100px;
 }
 
 /* __________ HEADER _________ */
@@ -78,6 +84,7 @@ footer {
 	font-family:'Open Sans', sans-serif;
 	bottom:0px;width:100%;
 	margin-top: 50px;
+	position: absolute;
 }
 
 .footer-ul {
