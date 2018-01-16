@@ -220,6 +220,9 @@ footer {
 
 /* ___________ SIDEPANEL - RANKING + RECENT POSTS __________*/
 .sidePanel {
+	position: fixed;
+	right:20;
+	top:130px;
 }
 
 /* ___________ RANKINGPANEL __________*/
