@@ -21,7 +21,7 @@
     				}
     			?>
     		</ol>
-    		<center><a href="ranking.php">Ranking.. </a></center>
+    		<center><a class="panelLink" href="ranking.php">Ranking.. </a></center>
     </div>
 
     <!-- RECENT POSTS - TOP 4 RECENT POSTS -->
@@ -45,7 +45,7 @@
     					?>
     			</ul>
 
-    			<center><a href="forum.php">Forum.. </a></center>
+    			<center><a class="panelLink" href="forum.php">Forum.. </a></center>
     	</div>
     </div>
 </div>
