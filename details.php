@@ -18,96 +18,98 @@ session_start();
  <body>
 	<?php include("includes/header.php"); ?>
 
-	<?php include("includes/rpanel.php"); ?>
-        <?php include("includes/recentposts.php"); ?>
-
 	<div class="container">
       <div class="row">
 
         <div class=" col-md-10 col-md-offset-1" >
 
-		<?php
+    		<?php
 
-		if(isset($_GET['id'])){
-			$player = Controller::getPlayerById($_GET['id']);
-		} else {
-			exit();
-		}
+    		if(isset($_GET['id'])){
+    			$player = Controller::getPlayerById($_GET['id']);
+    		} else {
+    			exit();
+    		}
 
-		?>
+    		?>
 
-		<div class="row">
+    		<div class="row">
 
-			<div class="panel panel-info">
+    			<div class="panel panel-info">
 
-				<div class="panel-heading">
-					<h4 id = "player_name"><?php echo $player->getFirstName()." ".$player->getLastName() ?></h4>
-				</div>
-				<div class="panel-body">
-					<div class="row">
+    				<div class="panel-heading">
+    					<h4 id = "player_name"><?php echo $player->getFirstName()." ".$player->getLastName() ?></h4>
+    				</div>
+    				<div class="panel-body">
+    					<div class="row">
 
-						<div class="col-md-3">
-							<img alt="User Pic" class="img-responsive" src="<?php echo $player->getImage()?>" />
-						</div>
+    						<div class="col-md-3">
+    							<img alt="User Pic" class="img-responsive" src="<?php echo $player->getImage()?>" />
+    						</div>
 
 
-						<div class="col-md-offset-1 col-md-7">
-							<table class="table detailsTable">
-								<tbody>
-								<tr>
-									<td class="detailsTableHeading">Name:</td> <td><?php echo $player->getFirstName." ".$player->getLastName() ?></td>
-								</tr>
-								<tr>
-									<td class="detailsTableHeading">Country :</td> <td><?php echo $player->getCountry()?></td>
-								</tr>
-								<tr>
-									<td class="detailsTableHeading">Birthplace</td><td><?php echo $player->getBirthplace()?></td>
-								</tr>
-								<tr>
-									<td class="detailsTableHeading">Age</td><td><?php echo $player->getAge()?></td>
-								</tr>
-								<tr>
-									<td class="detailsTableHeading">ATP Ranking</td> <td><?php echo $player->getRanking()?></td>
-								</tr>
-								<tr>
-									<td class="detailsTableHeading">Weight</td><td><?php echo $player->getWeight()?></td>
-								</tr>
-								<tr>	<?php include("includes/menu.php"); ?>
-									<td class="detailsTableHeading">Height</td> <td><?php echo $player->getHeight()?></td>
-								</tr>
-								<tr>
-									<td class="detailsTableHeading">About</td> <td><?php echo $player->getAbout()?></td>
-								</tr>
-								<tr>
-									<td class="detailsTableHeading">Topics</td>
-									<td>
-										<ul>
+    						<div class="col-md-offset-1 col-md-7">
+    							<table class="table detailsTable">
+    								<tbody>
+    								<tr>
+    									<td class="detailsTableHeading">Name:</td> <td><?php echo $player->getFirstName()." ".$player->getLastName() ?></td>
+    								</tr>
+    								<tr>
+    									<td class="detailsTableHeading">Country :</td> <td><?php echo $player->getCountry()?></td>
+    								</tr>
+    								<tr>
+    									<td class="detailsTableHeading">Birthplace</td><td><?php echo $player->getBirthplace()?></td>
+    								</tr>
+    								<tr>
+    									<td class="detailsTableHeading">Age</td><td><?php echo $player->getAge()?></td>
+    								</tr>
+    								<tr>
+    									<td class="detailsTableHeading">ATP Ranking</td> <td><?php echo $player->getRanking()?></td>
+    								</tr>
+    								<tr>
+    									<td class="detailsTableHeading">Weight</td><td><?php echo $player->getWeight()?></td>
+    								</tr>
+    								<tr>
+    									<td class="detailsTableHeading">Height</td> <td><?php echo $player->getHeight()?></td>
+    								</tr>
+    								<tr>
+    									<td class="detailsTableHeading">About</td> <td><?php echo $player->getAbout()?></td>
+    								</tr>
+    								<tr>
+    									<td class="detailsTableHeading">Topics</td>
+    									<td>
+    										<ul>
 
-										<?php
-											$topics = Controller::getTopicsForPlayer($player->getFirstName(),$player->getLastName());
-											foreach($topics as $topic) {
-												$link = "forum.php?id=".$topic->getId();
-												echo "<li><a href=\"".$link."\">".$topic->getTitle()."</a></li>";
-											}
-										?>
+    										<?php
+    											$topics = Controller::getTopicsForPlayer($player->getFirstName(),$player->getLastName());
+    											foreach($topics as $topic) {
+    												$link = "forum.php?id=".$topic->getId();
+    												echo "<li><a href=\"".$link."\">".$topic->getTitle()."</a></li>";
+    											}
+    										?>
 
-										</ul>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-				</div>
+    										</ul>
+    									</td>
+    								</tr>
+    								</tbody>
+    							</table>
+    						</div>
+    				</div>
+                </div>
+
+    			</div>
+
+              </div>
             </div>
-
-			</div>
-
           </div>
-        </div>
-      </div>
+
+          <div class="col-md-3">
+      	       <?php //include("includes/sidePanel.php"); ?>
+      		</div>
+
     </div>
 
-	<?php include("includes/sidePanel.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
  </body>
 
